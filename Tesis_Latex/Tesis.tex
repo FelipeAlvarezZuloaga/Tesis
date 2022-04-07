@@ -1,0 +1,64 @@
+\documentclass{book}																				% Clase para la tesis
+
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{} % Para que en los nuevos capítulos, se incluya el encabezado y pie de página
+\makeatletter
+
+\usepackage[spanish]{babel}																	   % Para usar Español
+\usepackage{amssymb, amsmath, amsbsy, amsfonts, mathptmx}  % Para poder usar mates
+\usepackage{graphicx}																				% Para insertar gráficas, imágenes o figuras
+\usepackage[table,xcdraw]{xcolor} 														 % Para el color en tablas
+\usepackage{listings}                    															   % Para agregar codigo
+\usepackage[T1]{fontenc}																		% Evita tener problemas con las fuentes italicas, negritas. NO FUNCIONA CON PDFLATEX
+
+\usepackage{vmargin}																			    % Para modificar márgenes
+\usepackage[raggedleft]{titlesec}														    % Alinea a la derecha los títulos de capitulos, secciones, etc...
+\setpapersize{A4}																						 % Tamaño de papel
+\setmargins{2.5cm}      																			  % Margen izquierdo
+{1.5cm}                        																				   	  % Margen superior
+{16.5cm}                      																					 % Anchura del texto
+{23.42cm}                    																				   % Altura del texto
+{10pt}                           																					% Altura de los encabezados
+{1cm}                          																						% Espacio entre el texto y los encabezados
+{0pt}                             																					  % Altura del pie de página
+{2cm}                           																					% Espacio entre el texto y el pie de página
+
+
+\usepackage{fancyhdr}																				% Para cambiar los encabezados y pies de página
+\pagestyle{fancy}
+\fancyhead[RO,LE]{\thesection}
+\fancyfoot{} 
+\fancyfoot[LE,RO]{}
+\fancyfoot[LO,CE]{}
+\fancyfoot[LO,RE]{\thepage}
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}		% Cambia el nombre de "Índice General" a "Índice"
+\renewcommand\bibname{Referencias}																	% Cambia el nombre de "Índice General" a "Referencias"
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Portada/portada_fc}           														%  Portada
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Agradecimiento/dedicatoria}           										% Dedicatoria
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+\include{Indice/Indice_fc}           															% Índice
+\pagestyle{fancy}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Capitulo1/introduccion}           												% Introduccion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Capitulo2/marco_teorico}                 									%Marco teórico 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Capitulo3/analisis}                 													%Analisis de resultados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Capitulo4/conclusiones}                 										%Analisis de resultados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{Referencias}
+\bibliographystyle{plain}
+\bibliography{Bibliografia/bib} 
+
+\end{document}
+
