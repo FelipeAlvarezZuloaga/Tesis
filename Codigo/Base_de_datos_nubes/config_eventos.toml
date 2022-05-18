@@ -1,0 +1,7 @@
+name='config_eventos'
+[Eventos]
+Tiempo_de_consideracion_mismo_evento_min = 5
+Intensidad_de_precipitacion_minima_consideracion_lluvia_mm_h = 0.1
+[Filtros]
+Duracion_total_minima_de_evento_min = 5 
+Intensidad_de_precipitacion_promedio_minima_mm_h = 2.5
